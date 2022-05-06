@@ -11,12 +11,17 @@ import org.junit.jupiter.api.BeforeAll;
 
 
 public class WebHooks {
-    @BeforeAll
-    public static void SetUp(){
+    public static void openWeb(){
+        Selenide.open("https://edujira.ifellow.ru/secure/Dashboard.jspa");
+    }
+
+    @Before
+    public  void SetUp(){
+        openWeb();
         Configuration.startMaximized = true;
 
         }
-    @AfterEach
+    @After
     public void SetDown() {
         WebDriverRunner.closeWebDriver();
     }
