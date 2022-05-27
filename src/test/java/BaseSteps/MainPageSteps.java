@@ -3,10 +3,15 @@ import static com.codeborne.selenide.Condition.visible;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import BaseElements.MainPageElements;
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
+import org.junit.Test;
 
 import java.time.Duration;
 
 public class MainPageSteps extends MainPageElements {
+
+
+
     public static void mainPageMethod(){
         projectElem.shouldBe(visible, Duration.ofSeconds(60)).click();
         testElem.shouldBe(visible,Duration.ofSeconds(60)).click();

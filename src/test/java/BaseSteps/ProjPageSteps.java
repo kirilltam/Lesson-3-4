@@ -1,10 +1,16 @@
 package BaseSteps;
 
 
+import io.qameta.allure.Step;
+import org.junit.Test;
+
 import static BaseElements.ProjectPageElements.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ProjPageSteps {
+
+
+
     public static void projectPageMethod() {
         String statusChek = statusVal.getText();
         assertEquals("В РАБОТЕ", statusChek, "not equals");

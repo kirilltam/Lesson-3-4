@@ -27,7 +27,7 @@ public class TaskElements {
     public static SelenideElement closePopUpBtn = $x("//button[@class='aui-close-button']");
 
 
-    public static SelenideElement status = $x("//*[@id='action_id_31']/span");
+    public static SelenideElement status = $x("//*[@id='status-val']/span");
 
 
 

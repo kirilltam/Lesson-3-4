@@ -1,13 +1,14 @@
 package BaseSteps;
 import com.codeborne.selenide.Condition;
-
-import static BaseElements.ProjectPageElements.versionCheck;
+import io.qameta.allure.Step;
 import static BaseElements.TaskElements.*;
 
 import static com.codeborne.selenide.Selenide.switchTo;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TaskPageSteps {
+
+
     public static void taskPageMethod() {
 
         createBtn.shouldBe(Condition.visible).pressEnter();
@@ -16,7 +17,7 @@ public class TaskPageSteps {
         taskType.pressEnter();
 
 
-        taskName.setValue("NewBug25");
+        taskName.setValue("NewBug26");
 
         switchTo().frame("mce_0_ifr");
         description.sendKeys("bad bug");
@@ -30,10 +31,10 @@ public class TaskPageSteps {
         priorityVer.sendKeys("Low");
         priorityVer.pressEnter();
 
-
-        switchTo().frame("mce_6_ifr");
-        descriptionField.sendKeys("А Я вам сейчас покажу, откуда готовилось нападение!");
-        switchTo().defaultContent();
+//
+//        switchTo().frame("mce_6_ifr");
+//        descriptionField.sendKeys("А Я вам сейчас покажу, откуда готовилось нападение!");
+//        switchTo().defaultContent();
 
 
         assignMe.click();
@@ -42,14 +43,20 @@ public class TaskPageSteps {
         createTaskBtn.shouldBe(Condition.visible).click();
 
         closePopUpBtn.shouldBe(Condition.visible).click();
-        searchTask.sendKeys("NewBug25");
+        searchTask.sendKeys("NewBug26");
         searchTask.shouldBe(Condition.visible).click();
         foundTask.shouldBe(Condition.visible).click();
         processBtn.shouldBe(Condition.visible).click();
         doneBtn.shouldBe().click();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
 
         String statuss = status.getText();
-        assertEquals("Выполнено", statuss,"not equals");
+
+        assertEquals("ГОТОВО", statuss,"not equals");
 
 
 
